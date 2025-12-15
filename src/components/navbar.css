@@ -132,8 +132,12 @@
     width: 100%;
     flex-direction: column;
     gap: 1.5rem;
-    padding-top: 1.5rem;
+    padding: 1.5rem;
     text-align: center;
+    background-color: #DC2626; /* Red background like toggle */
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
   }
 
   .navbar-links.active {
@@ -141,24 +145,28 @@
     animation: slideDown 0.3s ease-out forwards;
   }
 
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .navbar-link {
+    color: #ffffff; /* White text on red background */
+    font-size: 1.1rem;
   }
 
-  .navbar-links li {
-    width: 100%;
+  .navbar-link:hover {
+    color: #FFFB1F; /* Yellow hover */
+    text-decoration: none;
   }
 
   .navbar-links li:last-child .navbar-link {
     display: inline-block;
     width: auto;
     min-width: 200px;
+    background-color: #ffffff; /* White button */
+    color: #DC2626 !important; /* Red text */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-links li:last-child .navbar-link:hover {
+    background-color: #FFFB1F; /* Yellow hover for button */
+    color: #DC2626 !important;
+    transform: translateY(-2px);
   }
 }
