@@ -1,33 +1,35 @@
-/* Modern Professional Navbar */
+/* Bold & High Impact Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%; /* Responsive padding */
-  height: 80px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  padding: 0 4rem;
+  height: 90px;
+  background: linear-gradient(90deg, #DC2626 0%, #B91C1C 100%); /* Gradient Red */
+  box-shadow: 0 4px 15px rgba(185, 28, 28, 0.4);
   position: sticky;
   top: 0;
   z-index: 1000;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
 }
 
 .navbar-logo {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
-  color: #DC2626; /* Brand Red */
+  color: #ffffff;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   text-transform: uppercase;
-  letter-spacing: -0.5px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .navbar-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -37,9 +39,9 @@
 
 .navbar-link {
   text-decoration: none;
-  color: #1f2937; /* Dark Grey */
-  font-weight: 600;
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   position: relative;
@@ -47,71 +49,79 @@
   padding: 0.5rem 0;
 }
 
-/* Elegant Hover Effect */
-.navbar-link:hover {
-  color: #DC2626;
-}
-
-.navbar-link::before {
+/* Yellow Line Hover Effect */
+.navbar-link::after {
   content: '';
   position: absolute;
   width: 0;
   height: 3px;
   bottom: -4px;
-  left: 0;
-  background-color: #FFFB1F; /* Brand Yellow accent */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFFB1F; /* Bright Yellow */
   transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 251, 31, 0.6);
 }
 
-.navbar-link:hover::before {
+.navbar-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.navbar-link:hover::after {
   width: 100%;
 }
 
 .navbar-link.active {
-  color: #DC2626;
+  color: #FFFB1F;
+  font-weight: 700;
 }
 
-.navbar-link.active::before {
+.navbar-link.active::after {
   width: 100%;
+  background-color: #FFFB1F;
 }
 
-/* "Contacto" Button Styling */
+/* "Contacto" Button - Yellow High Contrast */
 .navbar-links li:last-child {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 }
 
 .navbar-links li:last-child .navbar-link {
-  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
-  color: #ffffff !important;
-  padding: 0.75rem 2rem;
-  border-radius: 4px; /* Slightly rounded, more corporate */
-  border-bottom: 4px solid #b91c1c; /* Depth effect */
-  transition: transform 0.1s ease, border-bottom 0.1s ease;
-  display: inline-block;
+  background-color: #FFFB1F;
+  color: #B91C1C !important;
+  padding: 0.8rem 2.2rem;
+  border-radius: 4px;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transform: skew(-10deg); /* Dynamic angle */
 }
 
-.navbar-links li:last-child .navbar-link::before {
+/* Correct text angle inside button */
+.navbar-links li:last-child .navbar-link span {
+  display: block;
+  transform: skew(10deg);
+}
+
+.navbar-links li:last-child .navbar-link::after {
   display: none;
 }
 
 .navbar-links li:last-child .navbar-link:hover {
-  transform: translateY(2px);
-  border-bottom: 2px solid #b91c1c; /* Pressed effect */
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  background-color: #ffffff;
+  color: #DC2626 !important;
+  transform: skew(-10deg) translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
-.navbar-links li:last-child .navbar-link:active {
-  transform: translateY(4px);
-  border-bottom: 0;
-}
-
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     height: auto;
     padding: 1.5rem;
     gap: 1.5rem;
+    background: #B91C1C;
   }
   
   .navbar-links {
@@ -123,11 +133,15 @@
   .navbar-links li:last-child {
     margin-left: 0;
     width: 100%;
-    text-align: center;
   }
   
   .navbar-links li:last-child .navbar-link {
     width: 100%;
-    box-sizing: border-box;
+    text-align: center;
+    transform: none; /* Remove skew on mobile */
+  }
+  
+  .navbar-links li:last-child .navbar-link span {
+    transform: none;
   }
 }
