@@ -1,66 +1,69 @@
+/* Modern Professional Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4rem;
+  padding: 0 5%; /* Responsive padding */
+  height: 80px;
   background-color: #ffffff;
-  border-top: 5px solid #DC2626; /* Brand Red Top Border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
   position: sticky;
   top: 0;
-  z-index: 50;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .navbar-logo {
-  font-size: 1.75rem;
-  font-weight: 900;
+  font-size: 1.8rem;
+  font-weight: 800;
   color: #DC2626; /* Brand Red */
   text-decoration: none;
-  letter-spacing: -0.025em;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 .navbar-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
+  height: 100%;
 }
 
 .navbar-link {
   text-decoration: none;
-  color: #374151; /* Dark Gray for readability */
+  color: #1f2937; /* Dark Grey */
   font-weight: 600;
-  font-size: 1rem;
-  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
 }
 
-/* Yellow Underline Effect */
-.navbar-link::after {
+/* Elegant Hover Effect */
+.navbar-link:hover {
+  color: #DC2626;
+}
+
+.navbar-link::before {
   content: '';
   position: absolute;
   width: 0;
-  height: 4px;
-  bottom: -6px;
+  height: 3px;
+  bottom: -4px;
   left: 0;
-  background-color: #FFFB1F; /* Brand Yellow */
+  background-color: #FFFB1F; /* Brand Yellow accent */
   transition: width 0.3s ease;
-  border-radius: 2px;
 }
 
-.navbar-link:hover {
-  color: #DC2626; /* Red on hover */
-}
-
-.navbar-link:hover::after {
+.navbar-link:hover::before {
   width: 100%;
 }
 
@@ -68,68 +71,63 @@
   color: #DC2626;
 }
 
-.navbar-link.active::after {
+.navbar-link.active::before {
   width: 100%;
 }
 
-/* Call to Action Button (Last Link - Contacto) */
-.navbar-links li:last-child .navbar-link {
-  background-color: #DC2626;
-  color: #FFFB1F;
-  padding: 0.6rem 1.5rem;
-  border-radius: 9999px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2);
+/* "Contacto" Button Styling */
+.navbar-links li:last-child {
+  margin-left: 1rem;
 }
 
-.navbar-links li:last-child .navbar-link::after {
-  display: none; /* No underline for button */
+.navbar-links li:last-child .navbar-link {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  color: #ffffff !important;
+  padding: 0.75rem 2rem;
+  border-radius: 4px; /* Slightly rounded, more corporate */
+  border-bottom: 4px solid #b91c1c; /* Depth effect */
+  transition: transform 0.1s ease, border-bottom 0.1s ease;
+  display: inline-block;
+}
+
+.navbar-links li:last-child .navbar-link::before {
+  display: none;
 }
 
 .navbar-links li:last-child .navbar-link:hover {
-  background-color: #b91c1c; /* Darker Red */
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(220, 38, 38, 0.3);
+  transform: translateY(2px);
+  border-bottom: 2px solid #b91c1c; /* Pressed effect */
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
 }
 
-.navbar-links li:last-child .navbar-link.active {
-  background-color: #b91c1c;
-  color: #ffffff;
+.navbar-links li:last-child .navbar-link:active {
+  transform: translateY(4px);
+  border-bottom: 0;
 }
 
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem 1.5rem;
     flex-direction: column;
-    gap: 1rem;
-    border-top: 3px solid #DC2626;
+    height: auto;
+    padding: 1.5rem;
+    gap: 1.5rem;
   }
   
   .navbar-links {
+    flex-direction: column;
+    gap: 1.5rem;
     width: 100%;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+  }
+
+  .navbar-links li:last-child {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
   }
   
-  .navbar-link {
-    font-size: 0.95rem;
-  }
-  
-  /* Disable button style on mobile for simpler layout */
   .navbar-links li:last-child .navbar-link {
-    background-color: transparent;
-    color: #374151;
-    padding: 0.5rem 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  
-  .navbar-links li:last-child .navbar-link:hover {
-    background-color: transparent;
-    color: #DC2626;
-    transform: none;
-    box-shadow: none;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
