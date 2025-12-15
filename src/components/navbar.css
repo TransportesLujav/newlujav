@@ -1,147 +1,91 @@
-/* Bold & High Impact Navbar */
+/* Normal Clean Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4rem;
-  height: 90px;
-  background: linear-gradient(90deg, #DC2626 0%, #B91C1C 100%); /* Gradient Red */
-  box-shadow: 0 4px 15px rgba(185, 28, 28, 0.4);
+  padding: 1rem 4rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
   font-family: 'Inter', sans-serif;
-  color: #ffffff;
+  border-bottom: 1px solid #eee;
 }
 
 .navbar-logo {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #DC2626; /* Red */
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  letter-spacing: 0.5px;
 }
 
 .navbar-links {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
-  height: 100%;
 }
 
 .navbar-link {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.9);
+  color: #DC2626; /* Red */
   font-weight: 500;
   font-size: 1rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  position: relative;
-  transition: all 0.3s ease;
-  padding: 0.5rem 0;
-}
-
-/* Yellow Line Hover Effect */
-.navbar-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #FFFB1F; /* Bright Yellow */
-  transition: width 0.3s ease;
-  box-shadow: 0 0 8px rgba(255, 251, 31, 0.6);
+  transition: all 0.2s ease;
 }
 
 .navbar-link:hover {
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
-
-.navbar-link:hover::after {
-  width: 100%;
+  color: #991b1b; /* Darker Red */
+  text-decoration: underline;
 }
 
 .navbar-link.active {
-  color: #FFFB1F;
   font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.navbar-link.active::after {
-  width: 100%;
-  background-color: #FFFB1F;
-}
-
-/* "Contacto" Button - Yellow High Contrast */
-.navbar-links li:last-child {
-  margin-left: 1.5rem;
-}
-
+/* Contact Button */
 .navbar-links li:last-child .navbar-link {
-  background-color: #FFFB1F;
-  color: #B91C1C !important;
-  padding: 0.8rem 2.2rem;
+  background-color: #DC2626;
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
   border-radius: 4px;
-  font-weight: 800;
-  border: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transform: skew(-10deg); /* Dynamic angle */
-}
-
-/* Correct text angle inside button */
-.navbar-links li:last-child .navbar-link span {
-  display: block;
-  transform: skew(10deg);
-}
-
-.navbar-links li:last-child .navbar-link::after {
-  display: none;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .navbar-links li:last-child .navbar-link:hover {
-  background-color: #ffffff;
-  color: #DC2626 !important;
-  transform: skew(-10deg) translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  background-color: #b91c1c;
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
 }
 
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
     height: auto;
-    padding: 1.5rem;
-    gap: 1.5rem;
-    background: #B91C1C;
   }
   
   .navbar-links {
     flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-  }
-
-  .navbar-links li:last-child {
-    margin-left: 0;
-    width: 100%;
-  }
-  
-  .navbar-links li:last-child .navbar-link {
+    gap: 1rem;
     width: 100%;
     text-align: center;
-    transform: none; /* Remove skew on mobile */
   }
-  
-  .navbar-links li:last-child .navbar-link span {
-    transform: none;
+
+  .navbar-links li:last-child .navbar-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
   }
 }
